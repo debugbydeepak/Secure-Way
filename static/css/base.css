@@ -1,0 +1,267 @@
+/* ═══════════════════════════════════════════════════════
+   SECUREWAY — Base Design Tokens, Reset & Typography
+   ═══════════════════════════════════════════════════════ */
+
+/* ── Design Tokens ──────────────────────────────────── */
+:root {
+    --cream:      #FFF8F0;
+    --copper:     #C08552;
+    --brown:      #8C5A3C;
+    --espresso:   #4B2E2B;
+    --cream-dim:  rgba(255, 248, 240, 0.08);
+    --copper-dim: rgba(192, 133, 82, 0.18);
+    --line:       rgba(192, 133, 82, 0.22);
+
+    /* Semantic aliases */
+    --bg:         var(--cream);
+    --text:       var(--espresso);
+    --accent:     var(--copper);
+    --muted:      var(--brown);
+
+    /* Type scale */
+    --fs-xs:   9px;
+    --fs-sm:   11px;
+    --fs-base: 13px;
+    --fs-md:   16px;
+    --fs-lg:   20px;
+    --fs-xl:   24px;
+    --fs-2xl:  32px;
+    --fs-3xl:  40px;
+    --fs-4xl:  52px;
+    --fs-5xl:  64px;
+    --fs-6xl:  72px;
+
+    /* Font families */
+    --ff-display: 'Playfair Display', Georgia, serif;
+    --ff-body:    'Cormorant Garamond', 'Times New Roman', serif;
+    --ff-mono:    'DM Mono', 'Courier New', monospace;
+
+    /* Spacing */
+    --space-xs:  8px;
+    --space-sm:  12px;
+    --space-md:  20px;
+    --space-lg:  32px;
+    --space-xl:  48px;
+    --space-2xl: 72px;
+    --space-3xl: 100px;
+
+    /* Misc */
+    --radius: 6px;
+    --radius-sm: 4px;
+    --nav-height: 64px;
+}
+
+
+/* ── CSS Reset ──────────────────────────────────────── */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--ff-body);
+    font-weight: 400;
+    font-size: var(--fs-md);
+    line-height: 1.7;
+    color: var(--text);
+    background-color: var(--bg);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+button {
+    font: inherit;
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+blockquote {
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* ── Typography ─────────────────────────────────────── */
+h1, h2, h3, h4 {
+    font-family: var(--ff-display);
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--espresso);
+}
+
+h1 { font-size: var(--fs-6xl); }
+h2 { font-size: var(--fs-3xl); }
+h3 { font-size: var(--fs-xl); }
+h4 { font-size: var(--fs-lg); }
+
+p {
+    font-family: var(--ff-body);
+    font-size: var(--fs-md);
+    line-height: 1.7;
+    color: var(--espresso);
+}
+
+em {
+    font-family: var(--ff-body);
+    font-style: italic;
+}
+
+
+/* ── Utility Classes ────────────────────────────────── */
+
+/* Uppercase label: DM Mono 9px, copper, letter-spacing 0.22em */
+.label-upper {
+    font-family: var(--ff-mono);
+    font-size: var(--fs-xs);
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--copper);
+    display: block;
+}
+
+/* Section number: Cormorant Garamond 64px light, opacity 0.25 */
+.section__number {
+    font-family: var(--ff-body);
+    font-size: var(--fs-5xl);
+    font-weight: 300;
+    opacity: 0.18;
+    color: var(--copper);
+    line-height: 1;
+    user-select: none;
+    position: absolute;
+    top: -10px;
+    left: -8px;
+}
+
+/* Section header with number offset */
+.section__header {
+    position: relative;
+    padding-left: 0;
+    margin-bottom: var(--space-xl);
+}
+
+.section__label-group {
+    position: relative;
+    z-index: 1;
+}
+
+.section__heading {
+    font-family: var(--ff-display);
+    font-size: var(--fs-3xl);
+    font-weight: 700;
+    color: var(--espresso);
+    margin-top: var(--space-sm);
+    line-height: 1.15;
+}
+
+
+/* ── Buttons ────────────────────────────────────────── */
+.btn {
+    display: inline-block;
+    font-family: var(--ff-mono);
+    font-size: var(--fs-base);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    padding: 14px 28px;
+    border-radius: var(--radius-sm);
+    transition: all 0.2s ease;
+    cursor: pointer;
+    text-align: center;
+}
+
+.btn--primary {
+    background-color: var(--copper);
+    color: var(--cream);
+    border: 1px solid var(--copper);
+}
+
+.btn--primary:hover {
+    background-color: var(--brown);
+    border-color: var(--brown);
+}
+
+.btn--outline {
+    background-color: transparent;
+    color: var(--copper);
+    border: 1px solid var(--line);
+}
+
+.btn--outline:hover {
+    background-color: var(--copper-dim);
+    border-color: var(--copper);
+}
+
+.btn--text {
+    background: none;
+    color: var(--copper);
+    padding: 14px 8px;
+    border: none;
+}
+
+.btn--text:hover {
+    color: var(--brown);
+}
+
+
+/* ── Section Container ──────────────────────────────── */
+.section {
+    padding: var(--space-3xl) var(--space-xl);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section__inner {
+    max-width: 1120px;
+    margin: 0 auto;
+}
+
+
+/* ── Fade-in Animation ──────────────────────────────── */
+.fade-in {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+    h1 { font-size: var(--fs-3xl); }
+    h2 { font-size: var(--fs-2xl); }
+
+    .section {
+        padding: var(--space-2xl) var(--space-md);
+    }
+
+    .section__number {
+        font-size: var(--fs-4xl);
+    }
+}
